@@ -140,3 +140,13 @@ text-decoration: underline;
     height: 300px;
     width: 100%;
 }
+
+     #filters a {
+    text-decoration: none;
+    color: inherit;   /* 👈 makes links use the same color as surrounding text */
+}
+
+#filters a:hover {
+    color: inherit;   /* 👈 prevents hover from turning blue */
+}
+    

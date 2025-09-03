@@ -1,8 +1,13 @@
+if(process.env.NODE_EVN !='production'){
+    require('dotenv').config()
+}
+
+
 const mongoose = require("mongoose");
 const Listing = require("../models/listing.js")
 const initData = require("./data.js")
 
-const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust'
+const DB_URL = 'mongodb+srv://shauryaveer10_db_user:yRzcdmiObf7W0VuQ@cluster0.z76gm0o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 main().then(() =>{
     console.log("Connected to MongoDb") 
@@ -10,15 +15,20 @@ main().then(() =>{
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(DB_URL);
 
 }
 
 const initDb = async () => {
-    await Listing.deleteMany({});
-    initData.data =  initData.data.map((obj) => ({...obj,owner:"688f3e59edd24f4b6487cc99"}))
-    await Listing.insertMany(initData.data);
-    console.log("Sample Data Added");
+   const listingsWithOwner = initData.map((obj) => ({
+  ...obj,
+  owner: "68b6da32f95fba638716b73d"
+}));
+
+await Listing.deleteMany({});
+await Listing.insertMany(listingsWithOwner);
+console.log("✅ Sample Data Added");
+
 }
 initDb();
 

@@ -24,6 +24,7 @@ router.route("/:id")
 .patch(isLoggedIn,isOwner,upload.single('listing[image]'), validateListing ,wrapAsync (listingController.updateListing))
 .delete(isLoggedIn,isOwner,wrapAsync (listingController.deleteListing))
 
+router.get("/category/:category", wrapAsync(listingController.categories));
 //Update Route
 router.get("/:id/edit" , isLoggedIn,isOwner, wrapAsync(listingController.renderEditForm));
 
