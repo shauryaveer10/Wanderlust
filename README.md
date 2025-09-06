@@ -57,7 +57,7 @@ This project was built with a focus on **scalability, cloud integration, and mul
 
 Clone the repository:
 ```
-git clone https://github.com/yourusername/Wanderlust.git
+git clone https://github.com/shauryaveer10/Wanderlust.git
 cd Wanderlust
 ```
 
