@@ -77,6 +77,11 @@ SESSION_SECRET=your_secret
 MONGO_URI=your_mongodb_uri
 ```
 
+Go to the init folder and run the index.js file
+This will initialise the database with the sample data.
+```
+node index.js
+```
 
 Run the server:
 ```
